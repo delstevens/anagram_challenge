@@ -1,0 +1,36 @@
+inonefile
+
+index.rb
+
+get '/:word' do
+  # Look in app/views/index.erb
+  @word = params[:word]
+
+  erb :index
+end
+
+
+word.rb
+
+class Word < ActiveRecord::Base
+
+  def self.anagram(in_word)
+      this_array = []
+      this_array << 1
+      this_array << Word.first.word_name + " #{in_word}"
+      this_array << 2
+  end
+
+
+end
+
+index.erb
+<div class="container">
+  <p>Show a list of anagrams for "<%= @word %>"</p>
+    <% this_array = Word.anagram(@word) %>
+    <% this_array.length.times do |item| %>
+      <p><%= this_array[item] %><p>
+    <%end%>
+
+</div>
+

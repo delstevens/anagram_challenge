@@ -1,0 +1,8 @@
+<div class="container">
+  <p>Show a list of anagrams for "<%= @word %>"</p>
+    <% this_array = Word.anagram(@word) %>
+    <% this_array.length.times do |item| %>
+      <p><%= this_array[item] %><p>
+    <%end%>
+
+</div>
